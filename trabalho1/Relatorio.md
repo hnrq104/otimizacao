@@ -5,6 +5,10 @@
 1. [Introdução](#introducao)
 2. [Modelagem](#modelagem)
     1. [Modelagem de Calorias](#calorias)
+    2. [Modelagem de Cálcio](#calcio)
+    3. [Modelagem de Vitamina A](#vitaminaA)
+    4. [Modelagem de Riboflavina](#riboflavina)
+    5. [Modelagem de Ácido Ascórbico](#acido)
 3. [Implementação](#implementacao)
 4. [Resultados Numéricos](#resultados)
 5. [Conclusões](#conclusao)
@@ -46,13 +50,13 @@ O Objetivo do Trabalho é encontrar os custos mínimos para o cumprimento da die
 | Z     | 86    | 83       |
 
 
-Os nutrientes desejados, em ordem respectiva às letras do nome, são: <span style="color: cyan;">Caloria</span>, <span style="color: blue;">Cálcio</span>, <span style="color: yellow;">Vitamina A</span>, <span style="color: red;">Riboflavina</span> e <span style="color: green;">Ácido Ascórbico</span>.
+Os nutrientes desejados, em ordem respectiva às letras do nome, são: <span style="color: cyan;">Caloria</span>, <span style="color: blue;">Cálcio</span>, <span style="color: rgb(204,204,0);">Vitamina A</span>, <span style="color: red;">Riboflavina</span> e <span style="color: green;">Ácido Ascórbico</span>.
 
 O *Produto X* é uma das Mercadorias que pode ser comprada para suprir a dieta, e cujas informações nutricionais e custo estão explicitados na tabela acima, também dependendo das 5 primeiras letras do nome.
 
 As outras Mercadorias que podem ser utilizadas para compor a dieta e alcançar os objetivos nutricionais desejados estão disponibilizados na tabela abaixo, dando-se ênfase para alguns produtos, que são os únicos disponíveis na loja em que serão comprados, estes sendo: *Farinha de Trigo (Enriquecida)*, *Leite Evaporado*, *Queijo Cheddar*, *Fígado Bovino*, *Repolho*, *Espinafre*, *Batata Doce* e *Feijão Verde (Seco)*.
 
-| Numero | Mercadoria                  | <span style="color: cyan;">Caloria</span> | Proteina | <span style="color: blue;">Cálcio</span> | Ferro | <span style="color: yellow;">Vitamina A</span> | Tiamina | <span style="color: red;">Riboflavina</span> | Niacina | <span style="color: green;">Ácido Ascórbico</span> |
+| Numero | Mercadoria                  | <span style="color: cyan;">Caloria</span> | Proteina | <span style="color: blue;">Cálcio</span> | Ferro | <span style="color: rgb(204,204,0);">Vitamina A</span> | Tiamina | <span style="color: red;">Riboflavina</span> | Niacina | <span style="color: green;">Ácido Ascórbico</span> |
 |:------ |:--------------------------- |:------- |:-------- |:------ |:--------- |:------- |:----------- |:------- |:-------------- |:---------------- |
 | 1      | Farinha de trigo (enriquecida) | 44.7    | 1411     | 2      | 365       | 0       | 55.4        | 33.3    | 441            | 0                |
 | 5      | Farinha de milho            | 36      | 897      | 1.7    | 99        | 30.9    | 17.4        | 7.9     | 106            | 0                |
@@ -83,7 +87,7 @@ As outras Mercadorias que podem ser utilizadas para compor a dieta e alcançar o
 
 Primeiramente, é importante realizar a organização dos dados sendo trabalhados. Portanto, é possível reduzir a segunda tabela para manter somente as informações consideradas relevantes (mantendo somente os nutrientes desejados e os alimentos disponíveis).
 
-| Numero | Mercadoria                  | <span style="color: cyan;">Caloria</span> | <span style="color: blue;">Cálcio</span> | <span style="color: yellow;">Vitamina A</span> | <span style="color: red;">Riboflavina</span> | <span style="color: green;">Ácido Ascórbico</span> |
+| Numero | Mercadoria                  | <span style="color: cyan;">Caloria</span> | <span style="color: blue;">Cálcio</span> | <span style="color: rgb(204,204,0);">Vitamina A</span> | <span style="color: red;">Riboflavina</span> | <span style="color: green;">Ácido Ascórbico</span> |
 |:------ |:--------------------------- |:----------------------------------------- |:---------------------------------------- |:---------------------------------------------- |:-------------------------------------------- |:-------------------------------------------------- |
 | 1      | Farinha de trigo (enriquecida) | 44.7                                      | 2                                        | 0                                              | 33.3                                         | 0                                                  |
 | 2     | Leite evaporado (lata)      | 8.4                                       | 15.1                                     | 26                                             | 23.5                                         | 60                                                 |
@@ -99,11 +103,15 @@ Primeiramente, é importante realizar a organização dos dados sendo trabalhado
 
 > Os nutrientes do Produto X serão referenciados como sendo X<sub>nutriente</sub> e sua quantidade será de M<sub>X</sub>
 
-> Os nutrientes necessários na Dieta serão referenciados como sendo N<sub>nutriente</sub>
+> Os nutrientes necessários na Dieta serão referenciados como sendo D<sub>nutriente</sub>
+
+As modelagens serão feitas de forma a encontrar as quantidades de alimentos (custos) necessários para se obter pelo menos o mínimo de nutrição indicado pela dieta.
 
 ### <div id='calorias'/> Modelagem da Quantidade de <span style="color: cyan;">Calorias</span> Necessárias:
 
-44.7 * M<sub>1</sub> + 8.4 * M<sub>2</sub> + 7.4 * M<sub>3</sub> + 2.2 * M<sub>4</sub> + 2.6 * M<sub>5</sub> + 1.1 * M<sub>6</sub> + 9.6 * M<sub>7</sub> + 17.4 * M<sub>8</sub> + X<sub><span style="color: cyan;">Calorias</span></sub> * M<sub>X</sub> 
+44.7 * M<sub>1</sub> + 8.4 * M<sub>2</sub> + 7.4 * M<sub>3</sub> + 2.2 * M<sub>4</sub> + 2.6 * M<sub>5</sub> + 1.1 * M<sub>6</sub> + 9.6 * M<sub>7</sub> + 17.4 * M<sub>8</sub> + X<sub><span style="color: cyan;">Calorias</span></sub> * M<sub>X</sub> $\geqslant$ D<sub><span style="color: cyan;">Calorias</span></sub>
+
+### <div id='calcio'/> Modelagem da Quantidade de <span style="color: blue;">Cálcio</span> Necessário:
 
 ## <div id='implementacao'/> **Implementação**
 

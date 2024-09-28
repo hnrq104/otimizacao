@@ -113,7 +113,52 @@ As modelagens serão feitas de forma a encontrar as quantidades de alimentos (cu
 
 ### <div id='calcio'/> Modelagem da Quantidade de <span style="color: blue;">Cálcio</span> Necessário:
 
+2 * M<sub>1</sub> + 15.1 * M<sub>2</sub> + 16.4 * M<sub>3</sub> + 0.2 * M<sub>4</sub> + 4 * M<sub>5</sub> + 0 * M<sub>6</sub> + 2.7 * M<sub>7</sub> + 3.7 * M<sub>8</sub> + X<sub><span style="color: blue;">Cálcio</span></sub> * M<sub>X</sub> $\geqslant$ D<sub><span style="color: blue;">Cálcio</span></sub>
+
+### <div id='vitaminaA'/> Modelagem da Quantidade de <span style="color: rgb(204,204,0);">Vitamina A</span> Necessária:
+
+0 * M<sub>1</sub> + 26 * M<sub>2</sub> + 28.1 * M<sub>3</sub> + 169.2 * M<sub>4</sub> + 7.2 * M<sub>5</sub> + 918.4 * M<sub>6</sub> + 290.7 * M<sub>7</sub> + 5.1 * M<sub>8</sub> + X<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub> * M<sub>X</sub> $\geqslant$ D<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub>
+
+### <div id='riboflavina'/> Modelagem da Quantidade de <span style="color: red;"> Riboflavina </span> Necessária:
+
+33.3 * M<sub>1</sub> + 23.5 * M<sub>2</sub> + 10.3 * M<sub>3</sub> + 50.8 * M<sub>4</sub> + 4.5 * M<sub>5</sub> + 13.8 * M<sub>6</sub> + 5.4 * M<sub>7</sub> + 38.2 * M<sub>8</sub> + X<sub><span style="color: red;">Riboflavina</span></sub> * M<sub>X</sub> $\geqslant$ D<sub><span style="color: red;">Riboflavina</span></sub>
+
+### <div id='acido'/> Modelagem da Quantidade de <span style="color: green;">Ácido Ascórbico</span> Necessário:
+
+0 * M<sub>1</sub> + 60 * M<sub>2</sub> + 0 * M<sub>3</sub> + 525 * M<sub>4</sub> + 5369 * M<sub>5</sub> + 2755 * M<sub>6</sub> + 1912 * M<sub>7</sub> + ,0 * M<sub>8</sub> + X<sub><span style="color: green;">Ácido Ascórbico</span></sub> * M<sub>X</sub> $\geqslant$ D<sub><span style="color: green;">Ácido Ascórbico</span></sub>
+
+### Objetivo: Minimizar **Custo** = M<sub>1</sub> + M<sub>2</sub> + M<sub>3</sub> + M<sub>4</sub> + M<sub>5</sub> + M<sub>6</sub> + M<sub>7</sub> + M<sub>8</sub> + M<sub>X</sub>
+
 ## <div id='implementacao'/> **Implementação**
+
+### 1° Passo da Implementação:
+
+> Encontrar os valores de Nutrientes baseado nas 5 primeiras letras dos nomes
+
+- Henrique
+    - H $\rarr$ D<sub><span style="color: cyan;">Calorias</span></sub> = 30 x 10<sup>2</sup> <span style="color: cyan;">Calorias</span> ; X<sub><span style="color: cyan;">Calorias</span></sub> = 690 x 10<sup>2</sup> <span style="color: cyan;">Calorias</span>
+    - E $\rarr$ D<sub><span style="color: blue;">Cálcio</span></sub> = 39 x 10<sup>-2</sup> gramas de <span style="color: blue;">Cálcio</span> ; X<sub><span style="color: blue;">Cálcio</span></sub> = 820 x 10<sup>-2</sup> gramas de <span style="color: blue;">Cálcio</span>
+    - N $\rarr$ D<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub> = 6 x 10<sup>2</sup> UI de <span style="color: rgb(204,204,0);">Vitamina A</span> ; X<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub> = 910 x 10<sup>2</sup> UI de <span style="color: rgb(204,204,0);">Vitamina A</span>
+    - R $\rarr$ D<sub><span style="color: red;">Riboflavina</span></sub> = 47 x 10<sup>-1</sup> miligramas de <span style="color: red;">Riboflavina</span> ; X<sub><span style="color: red;">Riboflavina</span></sub> = 67 x 10<sup>-1</sup> miligramas de <span style="color: red;">Riboflavina</span>
+    - I $\rarr$ D<sub><span style="color: green;">Ácido Ascórbico</span></sub> = 65 miligramas de <span style="color: green;">Ácido Ascórbico</span> ; X<sub><span style="color: green;">Ácido Ascórbico</span></sub> = 44 miligramas de <span style="color: green;">Ácido Ascórbico</span>
+- Lucas
+    - L $\rarr$ D<sub><span style="color: cyan;">Calorias</span></sub> = 68 x 10<sup>2</sup> <span style="color: cyan;">Calorias</span> ; X<sub><span style="color: cyan;">Calorias</span></sub> = 430 x 10<sup>2</sup> <span style="color: cyan;">Calorias</span>
+    - U $\rarr$ D<sub><span style="color: blue;">Cálcio</span></sub> = 78 x 10<sup>-2</sup> gramas de <span style="color: blue;">Cálcio</span> ; X<sub><span style="color: blue;">Cálcio</span></sub> = 540 x 10<sup>-2</sup> gramas de <span style="color: blue;">Cálcio</span>
+    - C $\rarr$ D<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub> = 83 x 10<sup>2</sup> UI de <span style="color: rgb(204,204,0);">Vitamina A</span> ; X<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub> = 590 x 10<sup>2</sup> UI de <span style="color: rgb(204,204,0);">Vitamina A</span>
+    - A $\rarr$ D<sub><span style="color: red;">Riboflavina</span></sub> = 7 x 10<sup>-1</sup> miligramas de <span style="color: red;">Riboflavina</span> ; X<sub><span style="color: red;">Riboflavina</span></sub> = 63 x 10<sup>-1</sup> miligramas de <span style="color: red;">Riboflavina</span>
+    - S $\rarr$ D<sub><span style="color: green;">Ácido Ascórbico</span></sub> = 20 miligramas de <span style="color: green;">Ácido Ascórbico</span> ; X<sub><span style="color: green;">Ácido Ascórbico</span></sub> = 97 miligramas de <span style="color: green;">Ácido Ascórbico</span>
+- Rafael
+    - R $\rarr$ D<sub><span style="color: cyan;">Calorias</span></sub> = 47 x 10<sup>2</sup> <span style="color: cyan;">Calorias</span> ; X<sub><span style="color: cyan;">Calorias</span></sub> = 670 x 10<sup>2</sup> <span style="color: cyan;">Calorias</span>
+    - A $\rarr$ D<sub><span style="color: blue;">Cálcio</span></sub> = 7 x 10<sup>2</sup> gramas de <span style="color: blue;">Cálcio</span> ; X<sub><span style="color: blue;">Cálcio</span></sub> = 630 x 10<sup>2</sup> gramas de <span style="color: blue;">Cálcio</span>
+    - F $\rarr$ D<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub> = 59 x 10<sup>2</sup> UI de <span style="color: rgb(204,204,0);">Vitamina A</span> ; X<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub> = 580 x 10<sup>2</sup> UI de <span style="color: rgb(204,204,0);">Vitamina A</span>
+    - A $\rarr$ D<sub><span style="color: red;">Riboflavina</span></sub> = 7 x 10<sup>-1</sup> miligramas de <span style="color: red;">Riboflavina</span> ; X<sub><span style="color: red;">Riboflavina</span></sub> = 63 x 10<sup>-1</sup> miligramas de <span style="color: red;">Riboflavina</span>
+    - E $\rarr$ D<sub><span style="color: green;">Ácido Ascórbico</span></sub> = 39 miligramas de <span style="color: green;">Ácido Ascórbico</span> ; X<sub><span style="color: green;">Ácido Ascórbico</span></sub> = 82 miligramas de <span style="color: green;">Ácido Ascórbico</span>
+
+### 2° Passo da Implementação
+
+> Transformar a Modelagem para a Forma Padrão ($\geqslant$ $\rarr$ $\leqslant$)
+
+-44.7 * M<sub>1</sub> - 8.4 * M<sub>2</sub> - 7.4 * M<sub>3</sub> - 2.2 * M<sub>4</sub> - 2.6 * M<sub>5</sub> - 1.1 * M<sub>6</sub> - 9.6 * M<sub>7</sub> - 17.4 * M<sub>8</sub> - X<sub><span style="color: cyan;">Calorias</span></sub> * M<sub>X</sub> $\leqslant$ - D<sub><span style="color: cyan;">Calorias</span></sub>
 
 ## <div id='resultados'/> **Resultados Numéricos**
 

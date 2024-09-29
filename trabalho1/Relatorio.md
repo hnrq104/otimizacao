@@ -10,7 +10,12 @@
     4. [Modelagem de Riboflavina](#riboflavina)
     5. [Modelagem de Ácido Ascórbico](#acido)
 3. [Implementação](#implementacao)
+    1. [1° Passo da Implementação](#1passo)
+    2. [2° Passo da Implementação](#2passo)
+    3. [3° Passo da Implementação](#3passo)
 4. [Resultados Numéricos](#resultados)
+    1. [Custo Total por Pessoa](#custo)
+    2. [Custo por Nutrientes da Letra b](#custoB)
 5. [Conclusões](#conclusao)
 6. [Bibliografia](#bibliografia)
 
@@ -125,13 +130,15 @@ As modelagens serão feitas de forma a encontrar as quantidades de alimentos (cu
 
 ### <div id='acido'/> Modelagem da Quantidade de <span style="color: green;">Ácido Ascórbico</span> Necessário:
 
-0 * M<sub>1</sub> + 60 * M<sub>2</sub> + 0 * M<sub>3</sub> + 525 * M<sub>4</sub> + 5369 * M<sub>5</sub> + 2755 * M<sub>6</sub> + 1912 * M<sub>7</sub> + ,0 * M<sub>8</sub> + X<sub><span style="color: green;">Ácido Ascórbico</span></sub> * M<sub>X</sub> $\geqslant$ D<sub><span style="color: green;">Ácido Ascórbico</span></sub>
+0 * M<sub>1</sub> + 60 * M<sub>2</sub> + 0 * M<sub>3</sub> + 525 * M<sub>4</sub> + 5369 * M<sub>5</sub> + 2755 * M<sub>6</sub> + 1912 * M<sub>7</sub> + 0 * M<sub>8</sub> + X<sub><span style="color: green;">Ácido Ascórbico</span></sub> * M<sub>X</sub> $\geqslant$ D<sub><span style="color: green;">Ácido Ascórbico</span></sub>
 
 ### Objetivo: Minimizar **Custo** = M<sub>1</sub> + M<sub>2</sub> + M<sub>3</sub> + M<sub>4</sub> + M<sub>5</sub> + M<sub>6</sub> + M<sub>7</sub> + M<sub>8</sub> + M<sub>X</sub>
 
+> Para encontrar as informações da Letra b, basta executar somente as linhas dos nutrientes desejados
+
 ## <div id='implementacao'/> **Implementação**
 
-### 1° Passo da Implementação:
+### <div id='1passo'/> 1° Passo da Implementação:
 
 > Encontrar os valores de Nutrientes baseado nas 5 primeiras letras dos nomes
 
@@ -154,17 +161,199 @@ As modelagens serão feitas de forma a encontrar as quantidades de alimentos (cu
     - A $\rarr$ D<sub><span style="color: red;">Riboflavina</span></sub> = 7 x 10<sup>-1</sup> miligramas de <span style="color: red;">Riboflavina</span> ; X<sub><span style="color: red;">Riboflavina</span></sub> = 63 x 10<sup>-1</sup> miligramas de <span style="color: red;">Riboflavina</span>
     - E $\rarr$ D<sub><span style="color: green;">Ácido Ascórbico</span></sub> = 39 miligramas de <span style="color: green;">Ácido Ascórbico</span> ; X<sub><span style="color: green;">Ácido Ascórbico</span></sub> = 82 miligramas de <span style="color: green;">Ácido Ascórbico</span>
 
-### 2° Passo da Implementação
+### <div id='2passo'/> 2° Passo da Implementação
 
 > Transformar a Modelagem para a Forma Padrão ($\geqslant$ $\rarr$ $\leqslant$)
 
 -44.7 * M<sub>1</sub> - 8.4 * M<sub>2</sub> - 7.4 * M<sub>3</sub> - 2.2 * M<sub>4</sub> - 2.6 * M<sub>5</sub> - 1.1 * M<sub>6</sub> - 9.6 * M<sub>7</sub> - 17.4 * M<sub>8</sub> - X<sub><span style="color: cyan;">Calorias</span></sub> * M<sub>X</sub> $\leqslant$ - D<sub><span style="color: cyan;">Calorias</span></sub>
 
+-2 * M<sub>1</sub> - 15.1 * M<sub>2</sub> - 16.4 * M<sub>3</sub> - 0.2 * M<sub>4</sub> - 4 * M<sub>5</sub> - 0 * M<sub>6</sub> - 2.7 * M<sub>7</sub> - 3.7 * M<sub>8</sub> - X<sub><span style="color: blue;">Cálcio</span></sub> * M<sub>X</sub> $\leqslant$ D<sub><span style="color: blue;">Cálcio</span></sub>
+
+-0 * M<sub>1</sub> - 26 * M<sub>2</sub> - 28.1 * M<sub>3</sub> - 169.2 * M<sub>4</sub> - 7.2 * M<sub>5</sub> - 918.4 * M<sub>6</sub> - 290.7 * M<sub>7</sub> - 5.1 * M<sub>8</sub> - X<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub> * M<sub>X</sub> $\leqslant$ D<sub><span style="color: rgb(204,204,0);">Vitamina A</span></sub>
+
+-33.3 * M<sub>1</sub> - 23.5 * M<sub>2</sub> - 10.3 * M<sub>3</sub> - 50.8 * M<sub>4</sub> - 4.5 * M<sub>5</sub> - 13.8 * M<sub>6</sub> - 5.4 * M<sub>7</sub> - 38.2 * M<sub>8</sub> - X<sub><span style="color: red;">Riboflavina</span></sub> * M<sub>X</sub> $\leqslant$ D<sub><span style="color: red;">Riboflavina</span></sub>
+
+-0 * M<sub>1</sub> - 60 * M<sub>2</sub> - 0 * M<sub>3</sub> - 525 * M<sub>4</sub> - 5369 * M<sub>5</sub> - 2755 * M<sub>6</sub> - 1912 * M<sub>7</sub> - 0 * M<sub>8</sub> - X<sub><span style="color: green;">Ácido Ascórbico</span></sub> * M<sub>X</sub> $\leqslant$ D<sub><span style="color: green;">Ácido Ascórbico</span></sub>
+
+### <div id='3passo'/> 3° Passo da Implementação
+
+> Aplicação do Método Simplex (em Python)
+
+- Necessário transformar os dados para a forma Ax $\leqslant$ b
+  - A é a Matriz dos Coeficientes
+  - x é o Vetor com as Variáveis (Neste caso, M<sub>i</sub> )
+  - b é o Vetor das Restrições
+
+> Encontrando a Matriz dos Coeficientes
+
+```Python
+def matriz(nome:str):
+    nome = nome.upper()
+    m = deepcopy(matriz_sem_prod_x)
+    for i in range(5): # são cinco nutrientes
+        if i < len(nome) and nome[i] in dieta_prodx_por_letra:
+            letra = nome[i]
+            val = float(dieta_prodx_por_letra[letra][1]) * conversao_prod_x[i]
+            m[i].append(val)
+        else: 
+            m[i].append(0.)
+    return np.matrix(m)
+```
+
+> Encontrando o Vetor de Restrições
+
+```Python
+def restricoes(nome:str):
+    nome = nome.upper()
+    r = []
+    for i in range(5):
+        if i < len(nome) and nome[i] in dieta_prodx_por_letra:
+            letra = nome[i]
+            val = float(dieta_prodx_por_letra[letra][0]) * conversao_dieta[i]
+            r.append(val)
+        else:
+            r.append(0.)
+    return np.array(r)
+```
+
+> Encontrando o Vetor de Variáveis (Objetivo)
+
+```Python
+def dieta(nome:str, method:str):
+    # Invertendo os sinais para transformar para a forma padrão
+    m = -matriz(nome)
+    r = -restricoes(nome)
+    c = np.ones(len(alimentos) + 1) # esse é o funcional linear que será minimizado
+    return scipy.optimize.linprog(c=c, A_ub=m, b_ub=r, method=method)
+```
+
 ## <div id='resultados'/> **Resultados Numéricos**
+
+> Resultado da Matriz de Coeficientes
+
+- Henrique
+
+M = $\begin{bmatrix}
+-44.7 & -8.4 & -7.4 & -2.2 & -2.6 & -1.1 & -9.6 & -17.4 & -69 \\
+-2 & -15.1 & -16.4 & -0.2 & -4 & -0 & -2.7 & -3.7 & -8.2 \\
+-0 & -26 & -28.1 & -169.2 & -7.2 & -918.4 & -290.7 & -5.1 & -91 \\
+-33.3 & -23.5 & -10.3 & -50.8 & -4.5 & -13.8 & -5.4 & -38.2 & -6.7 \\
+-0 & -60 & -0 & -525 & -5369 & -2755 & -1912 & -0 & -44
+\end{bmatrix}$
+
+- Lucas
+
+M = $\begin{bmatrix}
+-44.7 & -8.4 & -7.4 & -2.2 & -2.6 & -1.1 & -9.6 & -17.4 & -43 \\
+-2 & -15.1 & -16.4 & -0.2 & -4 & -0 & -2.7 & -3.7 & -5.4 \\
+-0 & -26 & -28.1 & -169.2 & -7.2 & -918.4 & -290.7 & -5.1 & -59 \\
+-33.3 & -23.5 & -10.3 & -50.8 & -4.5 & -13.8 & -5.4 & -38.2 & -6.3 \\
+-0 & -60 & -0 & -525 & -5369 & -2755 & -1912 & -0 & -97
+\end{bmatrix}$
+
+- Rafael
+
+M = $\begin{bmatrix}
+-44.7 & -8.4 & -7.4 & -2.2 & -2.6 & -1.1 & -9.6 & -17.4 & -67 \\
+-2 & -15.1 & -16.4 & -0.2 & -4 & -0 & -2.7 & -3.7 & -6.3 \\
+-0 & -26 & -28.1 & -169.2 & -7.2 & -918.4 & -290.7 & -5.1 & -58 \\
+-33.3 & -23.5 & -10.3 & -50.8 & -4.5 & -13.8 & -5.4 & -38.2 & -6.3 \\
+-0 & -60 & -0 & -525 & -5369 & -2755 & -1912 & -0 & -82
+\end{bmatrix}$
+
+> Resultado do Vetor de Restrições
+
+- Henrique
+
+b = $\begin{bmatrix}
+-3 \\ -0.39 \\ -0.6 \\ -4.7 \\ -65
+\end{bmatrix}$
+
+- Lucas
+
+b = $\begin{bmatrix}
+-6.8 \\ -0.78 \\ -8.3 \\ -0.7 \\ -20
+\end{bmatrix}$
+
+- Rafael
+
+b = $\begin{bmatrix}
+-4.7 \\ -0.07 \\ -5.9 \\ -0.7 \\ -39
+\end{bmatrix}$
+
+> Resultado do Vetor de Variáveis (Objetivo)
+
+- Henrique
+
+x = $\begin{bmatrix}
+0 \\ 0.00280396 \\ 0 \\ 0.08403366 \\ 0.00687433 \\ 0 \\ 0 \\ 0.04034798
+\end{bmatrix}$
+
+- Lucas
+
+x = $\begin{bmatrix}
+0.0203727 \\ 0 \\ 0 \\ 0 \\ 0.00243949 \\ 0 \\ 0 \\ 0.136899
+\end{bmatrix}$
+
+- Rafael
+
+x = $\begin{bmatrix}
+0.00315594 \\ 0 \\ 0 \\ 0 \\ 0.01213675 \\ 0 \\ 0 \\ 0.06784447
+\end{bmatrix}$
+
+> Quantidade de nutrientes por pessoa
+- Henrique
+
+-Mx = $\begin{bmatrix}
+3 \\ 0.39 \\ 24.27644967 \\ 4.7 \\ 65
+\end{bmatrix}$
+
+- Lucas
+
+-Mx = $\begin{bmatrix}
+6.8 \\ 0.78 \\ 10.31746934 \\ 1.57453944 \\ 20
+\end{bmatrix}$
+
+- Rafael
+
+-Mx = $\begin{bmatrix}
+4.7 \\ 0.43373201 \\ 15.08137274 \\ 0.7 \\ 39.
+\end{bmatrix}$
+
+### <div id='custo'/> Custo total por pessoa
+
+- Henrique = *U$ 0.1340599306242723*
+
+- Lucas = *U$ 0.15971118784604565*
+
+- Rafael = *U$ 0.08313715497274843*
+
+### <div id='custoB'/> Custo considerando somente a Vitamina A e a Riboflavina (Letra b)
+
+> Nós concordamos que o custo que estaríamos dispostos a pagar seria considerando todos os alimentos (e seus preços) - mesmo aqueles que não estão disponíveis na loja.
+
+
+- Henrique
+  - <span style="color: rgb(204,204,0);">Vitamina A</span> = *U$ 0.0006533101045296169*
+  - <span style="color: red;">Riboflavina</span> = *U$ 0.09251968503937008*
+- Lucas
+  - <span style="color: rgb(204,204,0);">Vitamina A</span> = *U$ 0.009037456445993032*
+  - <span style="color: red;">Riboflavina</span> = *U$ 0.01377952755905512*
+- Rafael
+  - <span style="color: rgb(204,204,0);">Vitamina A</span> = *U$ 0.006424216027874565*
+  - <span style="color: red;">Riboflavina</span> = *U$ 0.01377952755905512*
 
 ## <div id='conclusao'/> **Conclusões**
 
+> É possível concluir que os valores necessários para alcançar a nutrição da dieta são todos baixos, com o Rafael sendo a pessoa que requer menos dinheiro para alcançar o objetivo nutricional.
+
 ## <div id='bibliografia'/> **Bibliografia**
+
+https://docs.scipy.org/doc/scipy/reference/optimize.linprog-simplex.html
+
+https://github.com/scipy/scipy/blob/c0065b69a98be549b46e44573bbf3c13e98681da/scipy/optimize/_linprog_simplex.py
+
+
 
 <style>
 .markdown-body strong{

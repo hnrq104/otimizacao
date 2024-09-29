@@ -140,8 +140,6 @@ As modelagens serão feitas de forma a encontrar as quantidades de alimentos (cu
 
 ### <div id='1passo'/> 1° Passo da Implementação:
 
-> Encontrar os valores de Nutrientes baseado nas 5 primeiras letras dos nomes
-
 - Henrique
     - H $\rarr$ D<sub><span style="color: cyan;">Calorias</span></sub> = 30 x 10<sup>2</sup> <span style="color: cyan;">Calorias</span> ; X<sub><span style="color: cyan;">Calorias</span></sub> = 690 x 10<sup>2</sup> <span style="color: cyan;">Calorias</span>
     - E $\rarr$ D<sub><span style="color: blue;">Cálcio</span></sub> = 39 x 10<sup>-2</sup> gramas de <span style="color: blue;">Cálcio</span> ; X<sub><span style="color: blue;">Cálcio</span></sub> = 820 x 10<sup>-2</sup> gramas de <span style="color: blue;">Cálcio</span>
@@ -179,7 +177,8 @@ As modelagens serão feitas de forma a encontrar as quantidades de alimentos (cu
 
 > Aplicação do Método Simplex (em Python)
 
-- Necessário transformar os dados para a forma Ax $\leqslant$ b
+- Necessário transformar os dados para a forma Ax $\leqslant$ b, onde estamos trabalhando nas mesmas unidades.
+- 
   - A é a Matriz dos Coeficientes
   - x é o Vetor com as Variáveis (Neste caso, M<sub>i</sub> )
   - b é o Vetor das Restrições
@@ -187,13 +186,13 @@ As modelagens serão feitas de forma a encontrar as quantidades de alimentos (cu
 > Encontrando a Matriz dos Coeficientes
 
 ```Python
-def matriz(nome:str):
+def matriz_loja(nome:str):
     nome = nome.upper()
-    m = deepcopy(matriz_sem_prod_x)
-    for i in range(5): # são cinco nutrientes
+    m = deepcopy(tabela_loja)
+    for i in range(5): #são cinco nutrientes
         if i < len(nome) and nome[i] in dieta_prodx_por_letra:
             letra = nome[i]
-            val = float(dieta_prodx_por_letra[letra][1]) * conversao_prod_x[i]
+            val = float(dieta_prodx_por_letra[letra][1]) * conversao_prod_x[i] #converte para undade correta
             m[i].append(val)
         else: 
             m[i].append(0.)
@@ -209,7 +208,7 @@ def restricoes(nome:str):
     for i in range(5):
         if i < len(nome) and nome[i] in dieta_prodx_por_letra:
             letra = nome[i]
-            val = float(dieta_prodx_por_letra[letra][0]) * conversao_dieta[i]
+            val = float(dieta_prodx_por_letra[letra][0]) * conversao_dieta[i] #converte para unidade correta
             r.append(val)
         else:
             r.append(0.)
@@ -262,6 +261,9 @@ M = $\begin{bmatrix}
 \end{bmatrix}$
 
 > Resultado do Vetor de Restrições
+
+Usamos (para testar) dois métodos diferentes do `scipy.optimize.lingprog`, o `simplex`e o `highs`. Ambos dão o mesmo resultado. Vi, posteriormente na implementação do código deles do simplex - https://github.com/scipy/scipy/blob/c0065b69a98be549b46e44573bbf3c13e98681da/scipy/optimize/_linprog_simplex.py - que eles usam o método de duas fases para determinar uma solução inicial.
+
 
 - Henrique
 
@@ -352,6 +354,8 @@ x = $\begin{bmatrix}
 https://docs.scipy.org/doc/scipy/reference/optimize.linprog-simplex.html
 
 https://github.com/scipy/scipy/blob/c0065b69a98be549b46e44573bbf3c13e98681da/scipy/optimize/_linprog_simplex.py
+
+https://docs.python.org/3/library/csv.html
 
 
 

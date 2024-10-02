@@ -1,5 +1,13 @@
 # **Relatório do Trabalho 1**
 
+## Cabeçalho
+**Curso:** Otimização ICP-365
+**Professora:** Maria Helena
+**Alunos:**
+- Henrique Lima Cardoso (122078397)
+- Lucas de Castro Carelli (122067516)
+- Rafael Gomes Campos (122035111)
+
 ## Índice
 
 1. [Introdução](#introducao)
